@@ -152,7 +152,8 @@
 
 # PeerConnection Demo
 
-<video id="example2" autoplay="autoplay">
+<div align="center" id="warning"></div>
+<video id="example2" autoplay="autoplay" />
 
 <script>
 // This example code joins the berlinjs room on the palava rtc server
@@ -175,6 +176,9 @@ $(".example2-slide").bind("showoff:show", function() {
               console.log("Got message: " + msg.event);
 
               if(msg.event === 'joined_room') {
+                  if(msg.peer_ids.length === 0) {
+                    $('#warning').html('Nobody is in <a href="https://palava.tv/berlinjs">https://palava.tv/berlinjs</a>, so this demo won\'t work!');
+                  }
                   peerId = msg.peer_ids[0];
                   pc.createOffer(function(sdp) {
                       console.log("Created offer for peer" + peerId);
