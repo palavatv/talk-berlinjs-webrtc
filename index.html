@@ -1,0 +1,799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>WebRTC</title>
+
+  <meta name="viewport" content="width=device-width"/>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" />
+
+  <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+  <script type="text/javascript" src="./js/coffee-script.js"></script>
+
+  
+    
+      <script type="text/javascript" src="./js/sh_lang/sh_javascript.min.js"></script>
+    
+      <script type="text/javascript" src="./js/sh_lang/sh_coffeescript.min.js"></script>
+    
+  
+
+  
+    <link rel="stylesheet" href="./file/something.css" type="text/css"/>
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+      setupPreso(false, './');
+  });
+  </script>
+
+</head>
+
+<body>
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">z, ?</td><td>toggle help (this)</td></tr>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">shift-space, &larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>toggle debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c, t</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">n</td><td>toggle notes</td></tr>
+    <tr><td class="key">p</td><td>run preshow</td></tr>
+    <tr><td class="key">P</td><td>toggle pause</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content small" ref="intro/1-title/1">
+<h1>WebRTC: Theory and Practice</h1>
+
+<h2>Jan Lelis | Marius Melzer</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="intro/1-title/2">
+<h1>WebRTC: Theory and Practice</h1>
+
+<h2><a href="https://twitter.com/happycode">@happycode</a> | <a href="https://twitter.com/happycode">@faraoso</a></h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="intro/1-title/3">
+<h1>WebRTC: Theory and Practice</h1>
+
+<h2><a href="http://berlinjs.org">BerlinJS</a> | June 20, 2013</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/2-prism/1">
+<p class="notes">we need reliable, distributed, encrypted, direct communication - simple to use</p>
+
+<p><img src="./file/intro/nsa-eagle.jpg" width="700" height="690" alt="NSA">
+<small>cc-by eff.org</small></img>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller full-image" ref="intro/2-prism/2">
+<h1>Client-Server-Client?</h1>
+
+<p><img src="./file/intro/client-server.svg" alt="Client-Server-Client"/>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller full-image" ref="intro/2-prism/3">
+<h1>Client-Client!</h1>
+
+<p><img src="./file/intro/p2p.svg" alt="Client-Client"/>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="intro/3-webrtc-overview/1">
+<p class="notes">Initially by Global IP Solutions (GIPS) 2010</p>
+
+<p><img src="./file/intro/webrtc.png" width="243" height="41" alt="WebRTC"/>
+
+<p><br/></p>
+
+<h2>Upcoming Standard</h2>
+
+<p>World Wide Web Consortium</p>
+
+<p>Internet Engineering Task Force</p>
+
+<p><br/></p>
+
+<h2>Initial Parts Developed By</h2>
+
+<p>Global IP Solutions</p>
+
+<p>Bought by Google in 2010</p>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small-image" ref="intro/3-webrtc-overview/2">
+<p><img src="./file/intro/webrtc-components.png" width="645" height="337" alt="WebRTC Components"/>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content example1-slide small" ref="intro/4-webrtc-demos/1">
+<h1>getUserMedia Demo</h1>
+
+<p><video id="example1-video" autoplay="autoplay"/>
+
+<script>
+  $(".example1-slide").bind("showoff:show", function() {
+    navigator.webkitGetUserMedia(
+      {video: true, audio: false},
+      function(stream) {
+        document.getElementById('example1-video').src =
+            webkitURL.createObjectURL(stream);
+      }
+    );
+  });
+</script>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small small-code" ref="intro/4-webrtc-demos/2">
+<h1>getUserMedia Demo</h1>
+
+<pre class="sh_javascript"><code>   &lt;video id="example1-video" autoplay="autoplay"&gt;
+
+   &lt;script&gt;
+     navigator.webkitGetUserMedia(
+       {video: true, audio: false},
+       function(stream) {
+         document.getElementById('example1-video').src =
+             webkitURL.createObjectURL(stream);
+       }
+     );
+   &lt;/script&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content palava-image" ref="palava/1-demo">
+<p><img src="./file/palava/palava.png" width="293" height="70" alt="palava"/>
+
+<p>Video Communication Platform</p>
+
+<p>Available at <a href="https://palava.tv">palava.tv</a></p>
+
+<p>Supports Chrome and Firefox</p>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/0-contents">
+<h1>WebRTC: Theory</h1>
+
+<h2>Features</h2>
+
+<h2>Session Establishment</h2>
+
+<h2>Low Level Protocols</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content S" ref="webrtc-theory/1-features/1">
+<h1>WebRTC Features</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/1-features/2">
+<h2>Feature</h2>
+
+<h1>Standardized Protocols</h1>
+
+<p>NAT Hole Punching</p>
+
+<p>Media Streams</p>
+
+<p>Data Channels</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/1-features/3">
+<h2>Feature</h2>
+
+<h1>Standardized Codecs</h1>
+
+<p>Video: VP8</p>
+
+<p>Audio: Opus</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/1-features/4">
+<p class="notes">and "independence"</p>
+
+<h2>Feature</h2>
+
+<h1>Platform Interoperability</h1>
+
+<p>Different OSs / Browsers</p>
+
+<p>Different Devices / VOIP / Land Lines</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/1-features/5">
+<h2>Feature</h2>
+
+<h1>Well-defined Communication Channel</h1>
+
+<p>Adaptive to Network Conditions / Renegotiation</p>
+
+<p>Encrypted by Default</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/1">
+<h1>Session Establishment</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/2">
+<h2>Session Establishment</h2>
+
+<h1>Signaling Channel</h1>
+
+<p>Free to choose: XHR, WS, ...</p>
+
+<p>Developer implements Details</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/3">
+<h2>Session Establishment</h2>
+
+<h1>Signaling Channel</h1>
+
+<p><img src="./file/webrtc-theory/signaling-server.png" width="630" height="338" alt="signaling-server"/>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content medium-image" ref="webrtc-theory/2-session-establishment/4">
+<h2>Session Establishment</h2>
+
+<h1>Contact Server</h1>
+
+<p><img src="./file/webrtc-theory/join.png" width="607" height="316" alt="join"/>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/5">
+<h2>Session Establishment</h2>
+
+<h1>Ensure Agreement</h1>
+
+<p><img src="./file/webrtc-theory/offer-answer.png" width="607" height="212" alt="offer-answer"/>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/6">
+<p class="notes">Renegotiation Possible. Developer not supposed to edit sdp, but can</p>
+
+<h2>Session Establishment</h2>
+
+<h1>SDP</h1>
+
+<p>Session Description Protocol</p>
+
+<p>Details about Media Capabilities</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="webrtc-theory/2-session-establishment/7">
+<h2>Session Establishment</h2>
+
+<h1>SDP Example Token</h1>
+
+<p>v=0
+o=- 3869962025294249707 2 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE audio video
+a=msid-semantic: WMS Yhb3bAbcbJfG3I2gQ1CSKyZ1YxLbdP4pPJqd
+m=audio 1 RTP/SAVPF 111 103 104 0 8 107 106 105 13 126
+c=IN IP4 0.0.0.0
+a=rtcp:1 IN IP4 0.0.0.0
+a=ice-ufrag:BEu7Lja6FjAY0e9f
+a=ice-pwd:j7e1RG5lkZglnryHeqB4drYn
+a=ice-options:google-ice
+a=fingerprint:sha-256 CE:D3:47:15:E8:5D:64:35:30:32:F7:14:FD:18:17:9C:E1:3A:F2:0B:0B:90:FF:26:90:21:B1:40:68:9C:EA:E7
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=sendrecv
+a=mid:audio
+a=rtcp-mux
+a=crypto:1 AES<em>CM</em>128<em>HMAC</em>SHA1<em>80 inline:gFszjZPHhEfqGehRrfnSrGtNqMlzYglKuvewCInq
+a=rtpmap:111 opus/48000/2
+a=fmtp:111 minptime=10
+a=rtpmap:103 ISAC/16000
+a=rtpmap:104 ISAC/32000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:107 CN/48000
+a=rtpmap:106 CN/32000
+a=rtpmap:105 CN/16000
+a=rtpmap:13 CN/8000
+a=rtpmap:126 telephone-event/8000
+a=maxptime:60
+a=ssrc:2710618532 cname:aqZgznSt7eFJwMlw
+a=ssrc:2710618532 msid:Yhb3bAbcbJfG3I2gQ1CSKyZ1YxLbdP4pPJqd Yhb3bAbcbJfG3I2gQ1CSKyZ1YxLbdP4pPJqda0
+a=ssrc:2710618532 mslabel:Yhb3bAbcbJfG3I2gQ1CSKyZ1YxLbdP4pPJqd
+a=ssrc:2710618532 label:Yhb3bAbcbJfG3I2gQ1CSKyZ1YxLbdP4pPJqda0
+m=video 1 RTP/SAVPF 100 116 117
+c=IN IP4 0.0.0.0
+a=rtcp:1 IN IP4 0.0.0.0
+a=ice-ufrag:BEu7Lja6FjAY0e9f
+a=ice-pwd:j7e1RG5lkZglnryHeqB4drYn
+a=ice-options:google-ice
+a=fingerprint:sha-256 CE:D3:47:15:E8:5D:64:35:30:32:F7:14:FD:18:17:9C:E1:3A:F2:0B:0B:90:FF:26:90:21:B1:40:68:9C:EA:E7
+a=extmap:2 urn:ietf:params:rtp-hdrext:toffset
+a=sendrecv
+a=mid:video
+a=rtcp-mux
+a=crypto:1 AES</em>CM<em>128</em>HMAC<em>SHA1</em>80 inline:gFszjZPHhEfqGehRrfnSrGtNqMlzYglKuvewCInq
+a=rtpmap:100 VP8/90000
+a=rtcp-fb:100 ccm fir
+a=rtcp-fb:100 nack
+a=rtcp-fb:100 goog-remb
+a=rtpmap:116 red/90000
+a=rtpmap:117 ulpfec/90000
+a=ssrc:1347190094 cname:aqZgznSt7eFJwMlw
+a=ssrc:1347190094 msid:Yhb3bAbcbJfG3I2gQ1CSKyZ1YxLbdP4pPJqd Yhb3bAbcbJfG3I2gQ1CSKyZ1YxLbdP4pPJqdv0
+a=ssrc:1347190094 mslabel:Yhb3bAbcbJfG3I2gQ1CSKyZ1YxLbdP4pPJqd
+a=ssrc:1347190094 label:Yhb3bAbcbJfG3I2gQ1CSKyZ1YxLbdP4pPJqdv0</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/8">
+<p class="notes">NAT: The IP4 World is not Ideal...</p>
+
+<h2>Session Establishment</h2>
+
+<h1>Hole Punching</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/9">
+<h2>Hole Punching</h2>
+
+<h1>STUN</h1>
+
+<p>Session Traversal Utilities for NAT</p>
+
+<p>How are you reachable from the outside world?</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/10">
+<h2>Hole Punching</h2>
+
+<h1>STUN</h1>
+
+<p><img src="./file/webrtc-theory/stun1.png" width="648" height="343" alt="stun"/>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/11">
+<h2>Hole Punching</h2>
+
+<h1>ICE</h1>
+
+<p>Interactive Connectivy Establishment</p>
+
+<p>Send as many ways to reach each other as possible</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/12">
+<h2>Hole Punching</h2>
+
+<h1>ICE</h1>
+
+<p><img src="./file/webrtc-theory/stun2.png" width="648" height="420" alt="ice"/>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/13">
+<h2>Session Establishment</h2>
+
+<h1>Success</h1>
+
+<p><img src="./file/webrtc-theory/peerconnection.png" width="640" height="148" alt="peerconnection"/>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/14">
+<h2>Hole Punching</h2>
+
+<h1>TURN</h1>
+
+<p>Traversal Using Relays around NAT</p>
+
+<p>Use a "relay" server for video data, which is not behind NAT</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/15">
+<h2>Hole Punching</h2>
+
+<h1>TURN</h1>
+
+<p><img src="./file/webrtc-theory/turn.png" width="614" height="338" alt="turn"/>
+</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/2-session-establishment/16">
+<p class="notes">Solutions: Limit ICE candidates: Only TURN IP / Public IP</p>
+
+<h2>Session Establishment</h2>
+
+<h1>Privacy Considerations</h1>
+
+<p>Participants learns IPs of peers (not only of server)</p>
+
+<p>Private IP (behind NAT) might become known by others</p>
+
+<p>Even if session not established</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/3-protocols/1">
+<h1>Low Level Protocols</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/3-protocols/2">
+<h2>Low Level Protocols</h2>
+
+<h1>Transport Layer</h1>
+
+<p>Datagram Transport Layer Security (DTLS)</p>
+
+<p>TLS Transport over UDP</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/3-protocols/3">
+<p class="notes">IETF / Used in many VOIP Infrastructures</p>
+
+<h2>Low Level Protocols</h2>
+
+<h1>Secure Real-time Transport Protocol</h1>
+
+<p>SRTP transports Video / Audio Packets</p>
+
+<p>Contains Codecs / Timestamps / Sequence Numbers</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-theory/3-protocols/4">
+<h2>Low Level Protocols</h2>
+
+<h1>Stream Control Transmission Protocol</h1>
+
+<p>Used for Data Channels</p>
+
+<p>Alternative to TCP/UDP</p>
+
+<p>Comes with congestion control</p>
+
+<p>SCTP over DTLS over UDP</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/0-contents">
+<h1>WebRTC: Practice</h1>
+
+<h2>Browser Support</h2>
+
+<h2>Session Flow</h2>
+
+<h2>Example Workarounds</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/1-browser-support">
+<p class="notes">Opera plans full support</p>
+
+<h1>Supported Browsers</h1>
+
+<h2>Chrome Stable</h2>
+
+<p>API still changing</p>
+
+<h2>Firefox Stable</h2>
+
+<p>June 25, 2013</p>
+
+<h2>Opera</h2>
+
+<p>Currently only getUserMedia()</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/2-session-flow/1">
+<h1>Session Flow</h1>
+
+<h2>Obtain Local Media</h2>
+
+<h2>Setup PeerConnection / Handle Streams</h2>
+
+<h2>Connect to Signaling Server / Join Room</h2>
+
+<h2>Exchange SDP</h2>
+
+<h2>Exchange Ice Candidates</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/2-session-flow/2">
+<h2>Session Flow</h2>
+
+<h1>Obtain Local Media</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small-code" ref="webrtc-practice/2-session-flow/3">
+<pre class="sh_javascript"><code>var onLocalStreamReady = function(localStream) {
+    ...
+};
+
+navigator.webkitGetUserMedia(
+    {video: true, audio: false},
+    function(stream) {
+        console.log("Got localstream");
+        onLocalStreamReady(stream);
+    }
+);</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/2-session-flow/4">
+<h2>Session Flow</h2>
+
+<h1>Setup PeerConnection / Handle Streams</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small-code" ref="webrtc-practice/2-session-flow/5">
+<pre class="sh_javascript"><code>var onLocalStreamReady = function(localStream) {
+    var pc = new webkitRTCPeerConnection(
+        {iceServers: [{url: "stun:93.186.193.18"}]},
+        {optional: [{DtlsSrtpKeyAgreement: true}]}
+    );
+    pc.addStream(localStream);
+    pc.onaddstream = function(event) {
+        console.log("Add stream");
+        $('#example2')[0].src =
+            webkitURL.createObjectURL(event.stream);
+    };
+
+    // continues in next code example...</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/2-session-flow/6">
+<h2>Session Flow</h2>
+
+<h1>Connect to Signaling Server / Join Room</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller-code" ref="webrtc-practice/2-session-flow/7">
+<pre class="sh_javascript"><code>    // ... continued from last code example
+
+    var peerId;
+
+    var server = new WebSocket('wss:palava.tv:4233');
+    server.onopen = function() {
+        server.onmessage = function(msg) {
+          ... // react on joined_room, answer &amp; ice_candidate
+        };
+
+        ... // send own ice_candidates
+
+        console.log("Send message: 'join_room'");
+        server.send(JSON.stringify({
+            event: 'join_room',
+            room_id: 'berlinjs'
+        }));
+    };
+};</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/2-session-flow/8">
+<h2>Session Flow</h2>
+
+<h1>Exchange SDP</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller-code" ref="webrtc-practice/2-session-flow/9">
+<pre class="sh_javascript"><code>server.onmessage = function(msg) {
+      msg = JSON.parse(msg.data);
+      console.log("Got message: " + msg.event);
+
+      if(msg.event === 'joined_room') {
+          peerId = msg.peer_ids[0];
+          pc.createOffer(function(sdp) {
+              console.log("Created offer for peer" + peerId);
+              pc.setLocalDescription(sdp);
+              server.send(JSON.stringify({
+                  event: 'send_to_peer',
+                  peer_id: peerId,
+                  data: {
+                      event: 'offer',
+                      sdp: sdp
+                  }
+              }));
+          });
+      ...
+      }
+};</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small-code" ref="webrtc-practice/2-session-flow/10">
+<pre class="sh_javascript"><code>server.onmessage = function(msg) {
+      msg = JSON.parse(msg.data);
+      console.log("Got message: " + msg.event);
+      ...
+      if(msg.event === 'answer') {
+          pc.setRemoteDescription(
+              new RTCSessionDescription(msg.sdp)
+          );
+      }
+      ...
+};</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/2-session-flow/11">
+<h2>Session Flow</h2>
+
+<h1>Exchange Ice Candidates</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller-code" ref="webrtc-practice/2-session-flow/12">
+<pre class="sh_javascript"><code>server.onmessage = function(msg) {
+    msg = JSON.parse(msg.data);
+    console.log("Got message: " + msg.event);
+    ...
+    if(msg.event === 'ice_candidate') {
+        var candidate = new RTCIceCandidate({candidate: msg.candidate...});
+        pc.addIceCandidate(candidate);
+    }
+};
+
+pc.onicecandidate = function(event) {
+    if(event.candidate) {
+        console.log("Send ice candidate");
+        server.send(JSON.stringify({
+            event: 'send_to_peer',
+            peer_id: peerId,
+            data: {event:'ice_candidate', candidate:event.candidate.candidate...}
+        }));
+    }
+};</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content example2-slide small" ref="webrtc-practice/2-session-flow/13">
+<h1>PeerConnection Demo</h1>
+
+<div align="center" id="warning"/>
+
+<p><video id="example2" autoplay="autoplay"/></p>
+
+<script>
+// This example code joins the berlinjs room on the palava rtc server
+// It requires the other peer to already be present in the room
+// Only works in Chrome
+$(".example2-slide").bind("showoff:show", function() {
+  var onLocalStreamReady = function(localStream) {
+      var pc = new webkitRTCPeerConnection({iceServers: [{url: "stun:93.186.193.18"}]}, {"optional": [{"DtlsSrtpKeyAgreement": true}]});
+      pc.addStream(localStream);
+      pc.onaddstream = function(event) {
+          console.log("Add stream");
+          $('#example2')[0].src = webkitURL.createObjectURL(event.stream);
+      };
+      var peerId;
+
+      var server = new WebSocket('wss:palava.tv:4233');
+      server.onopen = function() {
+          server.onmessage = function(msg) {
+              msg = JSON.parse(msg.data);
+              console.log("Got message: " + msg.event);
+
+              if(msg.event === 'joined_room') {
+                  if(msg.peer_ids.length === 0) {
+                    $('#warning').html('Nobody is in <a href="https://palava.tv/berlinjs">https://palava.tv/berlinjs</a>, so this demo wont work!');
+                  }
+                  peerId = msg.peer_ids[0];
+                  pc.createOffer(function(sdp) {
+                      console.log("Created offer for peer" + peerId);
+                      pc.setLocalDescription(sdp);
+                      server.send(JSON.stringify({
+                          event: 'send_to_peer',
+                          peer_id: msg.peer_ids[0],
+                          data: {
+                              event: 'offer',
+                              sdp: sdp
+                          }
+                      }));
+                  });
+              }
+
+              if(msg.event === 'answer') {
+                  pc.setRemoteDescription(new RTCSessionDescription(msg.sdp));
+              }
+
+              if(msg.event === 'ice_candidate') {
+                  var candidate = new RTCIceCandidate({candidate: msg.candidate, sdpMLineIndex: msg.sdpmlineindex, sdpMid: msg.sdpmid});
+                  pc.addIceCandidate(candidate);
+              }
+          };
+
+          pc.onicecandidate = function(event) {
+              if(event.candidate) {
+                  console.log("Send ice candidate");
+                  server.send(JSON.stringify({
+                      event: 'send_to_peer',
+                      peer_id: peerId,
+                      data: {
+                          event: 'ice_candidate',
+                          label: event.candidate.label,
+                          sdpmlineindex: event.candidate.sdpMLineIndex,
+                          sdpmid: event.candidate.sdpMid,
+                          candidate: event.candidate.candidate
+                      }
+                  }));
+              }
+          };
+
+          console.log("Send message: 'join_room'");
+          server.send(JSON.stringify({
+              event: 'join_room',
+              room_id: 'berlinjs'
+          }));
+
+          //setInterval(3000, function() {server.close();});
+      };
+  };
+
+  navigator.webkitGetUserMedia(
+      {video: true, audio: false},
+      function(stream) {
+          console.log("Got localstream");
+          onLocalStreamReady(stream);
+      }
+  );
+});
+</script>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/3-workarounds/1">
+<h1>Workarounds</h1>
+
+<p>2 Examples</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/3-workarounds/2">
+<h2>Problem</h2>
+
+<p>Firefox and Chrome don't want to talk with each other</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small-code" ref="webrtc-practice/3-workarounds/3">
+<h2>Workaround</h2>
+
+<p>Hardcode Crypto Headers</p>
+
+<pre class="sh_coffeescript"><code>sdpHandler = (sd) =&gt;
+  if window.mozRTCPeerConnection
+    sd.sdp += (
+      'a=crypto:1 AES_CM_128_HMAC_SHA1_80 inline:' +
+      'BAADBAADBAADBAADBAADBAADBAADBAADBAADBAAD\r\n'
+    )
+  # ...</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/3-workarounds/4">
+<h2>Problem</h2>
+
+<p>When you mute one media stream in Chrome,</p>
+
+<p>it will mute all of the other media streams!</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="webrtc-practice/3-workarounds/5">
+<h2>Workaround</h2>
+
+<p>Manage all video "muted" states yourself!</p>
+
+<p>When a stream gets (un)muted, always mute all streams</p>
+
+<p>Then manually turn on all streams, where the mute state is "unmuted"</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="conclusion/1-resources">
+<h1>Further Reading</h1>
+
+<h2>Book  <a href="http://www.webrtcbook.com/">www.webrtcbook.com</a></h2>
+
+<h2>Specs <a href="http://www.w3.org/TR/webrtc/">www.w3.org/TR/webrtc</a></h2>
+
+<h2>Specs <a href="http://tools.ietf.org/wg/rtcweb/">tools.ietf.org/wg/rtcweb</a></h2>
+
+<h2>Blog  <a href="http://bloggeek.me">bloggeek.me</a></h2>
+
+<h2>Blog  <a href="https://blog.palava.tv">blog.palava.tv</a></h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="conclusion/2-contact">
+<h1>Contact</h1>
+
+<h2><a href="https://palava.tv">palava.tv</a> / <a href="https://twitter.com/palavatv">@palavatv</a></h2>
+
+<h2><a href="https://twitter.com/happycode">@happycode</a> / <a href="https://twitter.com/faraoso">@faraoso</a></h2>
+
+<h2>Slides at <a href="http://git.io/-Tfp6g">git.io/-Tfp6g</a></h2>
+</div>
+</div></div>
+<div id="pauseScreen">
+  pause
+</div>
+
+</body>
+</html>
