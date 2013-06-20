@@ -152,7 +152,7 @@
 
 # PeerConnection Demo
 
-<div align="center" id="warning"></div>
+<div style="text-align: center; display: none" id="warning">Nobody is in <a href="https://palava.tv/berlinjs">https://palava.tv/berlinjs</a>, so this demo won't work!</div>
 <video id="example2" autoplay="autoplay" />
 
 <script>
@@ -178,7 +178,7 @@ $(".example2-slide").bind("showoff:show", function() {
 
               if(msg.event === 'joined_room') {
                   if(msg.peer_ids.length === 0) {
-                    $('#warning').html('Nobody is in <a href="https://palava.tv/berlinjs">https://palava.tv/berlinjs</a>, so this demo won\'t work!');
+                    $('#warning').show();
                     server.close();
                     return null;
                   }
