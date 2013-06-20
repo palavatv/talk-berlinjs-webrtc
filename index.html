@@ -639,7 +639,7 @@ pc.onicecandidate = function(event) {
 </div><div class="slide" data-transition="none"><div class="content example2-slide small" ref="webrtc-practice/2-session-flow/13">
 <h1>PeerConnection Demo</h1>
 
-<div align="center" id="warning"/>
+<div style="text-align: center; display: none" id="warning">Nobody is in <a href="https://palava.tv/berlinjs">https://palava.tv/berlinjs</a>, so this demo won't work!</div>
 
 <p><video id="example2" autoplay="autoplay"/></p>
 
@@ -666,7 +666,7 @@ $(".example2-slide").bind("showoff:show", function() {
 
               if(msg.event === 'joined_room') {
                   if(msg.peer_ids.length === 0) {
-                    $('#warning').html('Nobody is in <a href="https://palava.tv/berlinjs">https://palava.tv/berlinjs</a>, so this demo wont work!');
+                    $('#warning').show();
                     server.close();
                     return null;
                   }
