@@ -1,0 +1,13 @@
+{
+  "name": "WebRTC",
+  "description": "WebRTC: Theory & Practice / BerlinJS 2013",
+  "author": "Jan Lelis & Marius Melzer",
+  "pause_msg": "pause",
+  "sections": [
+    {"section":"intro"},
+    {"section":"palava"},
+    {"section":"webrtc-theory"},
+    {"section":"webrtc-practice"},
+    {"section":"conclusion"}
+  ]
+}

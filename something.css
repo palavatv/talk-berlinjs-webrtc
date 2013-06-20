@@ -1,0 +1,43 @@
+body {
+  color: #222;
+}
+
+h1 {
+  color: #334;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: #19579E;
+}
+
+video {
+  height: 480px;
+}
+
+small {
+  position:relative;
+  top: -30px;
+  font-size: 50%;
+}
+
+.full-image img {
+  margin-top: 50px;
+  height: 300px;
+}
+
+.palava-image img {
+  margin-bottom: 30px;
+}
+
+.medium-image img {
+  margin-top: 20px;
+}
+
+.smaller-code code {
+    font-size: 47%;
+}
+
+.small-code code {
+  font-size: 75%;
+}
